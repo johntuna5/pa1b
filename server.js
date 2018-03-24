@@ -1,8 +1,14 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var cors = require('cors')
 
 // create express app
 var app = express();
+
+
+
+//enable cor
+app.use(cors())
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -38,6 +44,6 @@ app.get('/', function(req, res){
 require('./app/routes/note.routes.js')(app);
 
 // listen for requests
-app.listen(8081, function(){
-    console.log("Server is listening on port 8081");
+app.listen(3001, function(){
+    console.log("Server is listening on port 3001");
 });
